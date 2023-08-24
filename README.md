@@ -1,6 +1,6 @@
-### mdl-core
+# Getting started at MDL
 
-# Computational Docs
+## Computational Docs
 
 This set of pages is to document computational tools used in the MDL. Right now we have:
 
