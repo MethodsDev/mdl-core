@@ -18,6 +18,10 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [ "Click", "tomli; python_version < '3.11'" ]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["mdl/core", "mdl/log"]
+
 [tool.setuptools.dynamic]
 version = {attr = "mdl.core.__version__"}
 
