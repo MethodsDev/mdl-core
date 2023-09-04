@@ -131,7 +131,7 @@ mv /tmp/gcp-vm/etc/env.sh /etc/profile.d/
 chown root:root /etc/profile.d/env.sh
 
 mkdir /opt/bin
-mv /tmp/gcp-vm//bin/{define-jupyter-service,mount_workspace}.sh /opt/bin/
+mv /tmp/gcp-vm/bin/{define-jupyter-service,mount_workspace}.sh /opt/bin/
 chown root:root /opt/bin/{define-jupyter-service,mount_workspace}.sh
 ```
 
