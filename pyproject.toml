@@ -11,16 +11,12 @@ license = {file = "LICENSE"}
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
 ]
 dynamic = ["version"]
 dependencies = [ "Click", "tomli; python_version < '3.11'" ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["mdl/core", "mdl/log"]
 
 [tool.setuptools.dynamic]
 version = {attr = "mdl.core.__version__"}
