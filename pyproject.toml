@@ -14,6 +14,7 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [ "Click", "tomli; python_version < '3.11'" ]
+optional-dependencies = { dev = ["pre-commit", "ruff"] }
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -24,4 +25,4 @@ version = {attr = "mdl.core.__version__"}
 [tool.ruff]
 src = ["src"]
 select = ["E", "F", "I", "A"]
-
+ignore = ["E501"]
