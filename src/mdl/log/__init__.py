@@ -12,6 +12,7 @@ except ImportError:
 
 log = logging.getLogger(__package__)
 
+
 # custom version of click_log.ColorFormatter that supports formatting
 class ColorFormatter(logging.Formatter):
     colors = {
@@ -51,7 +52,7 @@ class ClickHandler(logging.Handler):
 
 def config_logger(package, name="logger.toml"):
     with importlib.resources.path(package, name) as log_config:
-        with log_config.open() as fh:
+        with log_config.open("rb") as fh:
             logging.config.dictConfig(tomllib.load(fh))
         log.debug(f"Loaded logging configuration from {log_config.absolute()}")
 
@@ -68,10 +69,10 @@ def verbosity_config_option(logger, pkg, *names, name="logger.toml", **kwargs):
     if not names:
         names = ["--verbose", "-v"]
 
-    kwargs.setdefault('default', 'INFO')
-    kwargs.setdefault('metavar', 'LVL')
+    kwargs.setdefault("default", "INFO")
+    kwargs.setdefault("metavar", "LVL")
     kwargs.setdefault("expose_value", False)
-    kwargs.setdefault('help', 'Either CRITICAL, ERROR, WARNING, INFO or DEBUG')
+    kwargs.setdefault("help", "Either CRITICAL, ERROR, WARNING, INFO or DEBUG")
     kwargs.setdefault("is_eager", True)
 
     def decorator(f):
@@ -79,7 +80,7 @@ def verbosity_config_option(logger, pkg, *names, name="logger.toml", **kwargs):
             x = getattr(logging, value.upper(), None)
             if x is None:
                 raise click.BadParameter(
-                    f'Must be CRITICAL, ERROR, WARNING, INFO or DEBUG, not {value}'
+                    f"Must be CRITICAL, ERROR, WARNING, INFO or DEBUG, not {value}"
                 )
             config_logger(pkg, name)
             logger.setLevel(x)
