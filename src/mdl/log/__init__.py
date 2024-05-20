@@ -5,7 +5,7 @@ import logging.config
 import click
 
 try:
-    import tomllib
+    import tomllib  # type: ignore
 except ImportError:
     import tomli as tomllib
 
