@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mdl-core"
+version = "0.1.0"
 description = "Core tools for working with long-read data"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -12,15 +13,8 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
 ]
-dynamic = ["version"]
 dependencies = [ "Click", "tomli; python_version < '3.11'" ]
 optional-dependencies = { dev = ["pre-commit", "ruff"] }
-
-[tool.setuptools.packages.find]
-where = ["src"]
-
-[tool.setuptools.dynamic]
-version = {attr = "mdl.core.__version__"}
 
 [tool.ruff]
 src = ["src"]
