@@ -58,7 +58,9 @@ def config_logger(package, name="logger.toml"):
 
 
 # version of click_log.simple_verbosity_option that loads a config first
-def verbosity_config_option(logger, pkg, *names, name="logger.toml", **kwargs):
+def verbosity_config_option(
+    logger, *names, pkg=__package__, name="logger.toml", **kwargs
+):
     """A decorator that adds a `--verbose, -v` option to the decorated
     command.
 
