@@ -16,6 +16,9 @@ classifiers = [
 dependencies = [ "Click", "tomli; python_version < '3.11'" ]
 optional-dependencies = { dev = ["pre-commit", "ruff"] }
 
+[tool.setuptools.package-data]
+"mdl.log" = ["logger.toml"]
+
 [tool.ruff]
 src = ["src"]
 select = ["E", "F", "I", "A"]
